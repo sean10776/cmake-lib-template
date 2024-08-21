@@ -99,3 +99,20 @@ if(${PROJECT_NAME}_BUILD_TESTS)
     enable_testing() # Note: this enables must call before add_subdirectory(tests)
     add_subdirectory(tests)
 endif()
+
+# ---- Create an installable target ----
+# this allows users to install and find the library via `find_package()`.
+string(TOLOWER ${PROJECT_NAME}/version.h VERSION_HEADER_LOCATION)
+
+CPMAddPackage("gh:TheLartians/PackageProject.cmake@1.11.2")
+
+packageProject(
+    NAME ${PROJECT_NAME}
+    VERSION ${PROJECT_VERSION}
+    NAMESPACE ${PROJECT_NAME}
+    BINARY_DIR ${PROJECT_BINARY_DIR}
+    INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include
+    INCLUDE_DESTINATION include/${PROJECT_NAME}-${PROJECT_VERSION}
+    VERSION_HEADER "${VERSION_HEADER_LOCATION}"
+    COMPATIBILITY SameMajorVersion
+)
