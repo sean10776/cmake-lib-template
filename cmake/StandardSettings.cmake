@@ -9,12 +9,6 @@ option(${PROJECT_NAME}_BUILD_TESTS "Build the tests of ${PROJECT_NAME}" ON)
 option(${PROJECT_NAME}_USE_ALT_NAMES "Use alternative names for the project, such as naming the include directory all lowercase." ON)
 
 #
-# Unit testing
-#
-option(${PROJECT_NAME}_USE_GOOGLE_TEST "Use Google Test for unit testing" ON)
-
-
-#
 # Compiler settings
 #
 option(${PROJECT_NAME}_WARING_AS_ERRORS "Treat warnings as errors" ON)
